@@ -1,22 +1,44 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import axios from "axios";
+
+import { useStateContext } from "../../contexts/ContextProvider";
 
 export default function Login() {
-  const [userCredentials, setCredentials] = useState({
+  const { setLoggedIn } = useStateContext();
+  const navigate = useNavigate();
+  const [userCredentials, setUserCredentials] = useState({
     email: "",
     password: "",
   });
 
   const { email, password } = userCredentials;
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(email, password);
+    axios
+      .post("http://localhost:8000/api/signin", {
+        email,
+        password,
+      })
+      .then((res) => {
+        localStorage.setItem("isLoggedIn", res.data.token);
+        setLoggedIn(true);
+        navigate("/dashboard");
+      })
+      .catch((err) => {
+        setUserCredentials({
+          email: "",
+          password: "",
+        });
+        alert("Invalid Details");
+      });
   };
 
   const handleChange = (event) => {
     const { value, name } = event.target;
-    setCredentials({ ...userCredentials, [name]: value });
+    setUserCredentials({ ...userCredentials, [name]: value });
   };
 
   return (
@@ -32,6 +54,7 @@ export default function Login() {
                 className='form-style'
                 placeholder='Your Email'
                 id='logemail'
+                value={email}
                 onChange={handleChange}
                 autoComplete='off'
               />
@@ -47,6 +70,7 @@ export default function Login() {
                 className='form-style'
                 placeholder='Your Password'
                 id='logpass'
+                value={password}
                 onChange={handleChange}
                 autoComplete='off'
               />

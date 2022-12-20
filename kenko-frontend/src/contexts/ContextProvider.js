@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 const StateContext = createContext();
 
@@ -12,6 +12,11 @@ export const ContextProvider = ({ children }) => {
   const [activeMenu, setActiveMenu] = useState(true);
   const [isClicked, setIsClicked] = useState(initialState);
   const [screenSize, setScreenSize] = useState(undefined);
+  const [loggedIn, setLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn") != null ? true : false
+  );
+
+  useEffect(() => {}, []);
 
   const handleClick = (clicked) => {
     setIsClicked({ ...initialState, [clicked]: true });
@@ -28,6 +33,8 @@ export const ContextProvider = ({ children }) => {
         setScreenSize,
         initialState,
         setIsClicked,
+        loggedIn,
+        setLoggedIn,
       }}>
       {children}
     </StateContext.Provider>

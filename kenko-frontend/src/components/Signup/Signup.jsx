@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import axios from "axios";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [userCredentials, setUserCredentials] = useState({
     name: "",
     email: "",
@@ -10,9 +13,25 @@ const Signup = () => {
 
   const { email, name, password } = userCredentials;
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(email, name, password);
+    axios
+      .post("http://localhost:8000/api/signup", {
+        email,
+        name,
+        password,
+      })
+      .then((res) => {
+        navigate("/dashboard");
+      })
+      .catch((err) => {
+        setUserCredentials({
+          name: "",
+          email: "",
+          password: "",
+        });
+        alert("Invalid Details");
+      });
   };
 
   const handleChange = (e) => {
@@ -34,6 +53,7 @@ const Signup = () => {
                 placeholder='Your Full Name'
                 id='logname'
                 autoComplete='off'
+                value={name}
                 onChange={handleChange}
               />
               <Icon className='input-icon uil uil-user' icon='uil:user' />
@@ -46,6 +66,7 @@ const Signup = () => {
                 placeholder='Your Email'
                 id='logemail'
                 autoComplete='off'
+                value={email}
                 onChange={handleChange}
               />
               <Icon
@@ -61,6 +82,7 @@ const Signup = () => {
                 placeholder='Your Password'
                 id='logpass'
                 autoComplete='off'
+                value={password}
                 onChange={handleChange}
               />
               <Icon

@@ -1,15 +1,6 @@
 import React from "react";
+import { AiOutlineCalendar, AiOutlineMessage } from "react-icons/ai";
 import {
-  AiOutlineCalendar,
-  AiOutlineMessage,
-  AiOutlineShoppingCart,
-  AiOutlineAreaChart,
-  AiOutlineBarChart,
-  AiOutlineStock,
-} from "react-icons/ai";
-import {
-  FiEdit,
-  FiPieChart,
   FiBarChart,
   FiCreditCard,
   FiStar,
@@ -18,21 +9,17 @@ import {
 import { HiOutlineHome } from "react-icons/hi";
 import { SlNote } from "react-icons/sl";
 import {
-  BsKanban,
-  BsBarChart,
   BsBoxSeam,
   BsCurrencyDollar,
   BsShield,
   BsChatLeft,
 } from "react-icons/bs";
 import { ImLab } from "react-icons/im";
-import { BiColorFill } from "react-icons/bi";
-import { IoMdContacts } from "react-icons/io";
-import { RiContactsLine, RiStockLine } from "react-icons/ri";
+
 import { MdOutlineSupervisorAccount } from "react-icons/md";
 import { HiOutlineRefresh } from "react-icons/hi";
 import { TbReportMedical } from "react-icons/tb";
-import { GiLouvrePyramid, GiMedicines } from "react-icons/gi";
+import { GiMedicines } from "react-icons/gi";
 import { GrLocation } from "react-icons/gr";
 import avatar from "./avatar.jpg";
 import avatar2 from "./avatar2.jpg";
@@ -502,6 +489,7 @@ export const appointmentGrid = [
     headerText: "Location",
     width: "120",
     textAlign: "Center",
+    template: gridAppointmentLocation,
   },
   {
     field: "Date",
@@ -533,22 +521,22 @@ export const links = [
       {
         name: "Home",
         icon: <HiOutlineHome />,
-        link: "dashboard",
+        link: "dashboard/home",
       },
       {
         name: "Appointments",
         icon: <AiOutlineCalendar />,
-        link: "appointments",
+        link: "dashboard/appointments",
       },
       {
         name: "Messages",
         icon: <AiOutlineMessage />,
-        link: "messages",
+        link: "dashboard/messages",
       },
       {
         name: "Calendar",
         icon: <AiOutlineCalendar />,
-        link: "calendar",
+        link: "dashboard/calendar",
       },
     ],
   },
@@ -559,22 +547,22 @@ export const links = [
       {
         name: "Lab Results",
         icon: <ImLab />,
-        link: "results",
+        link: "dashboard/results",
       },
       {
         name: "Medical Records",
         icon: <SlNote />,
-        link: "records",
+        link: "dashboard/records",
       },
       {
         name: "Prescriptions",
         icon: <GiMedicines />,
-        link: "prescriptions",
+        link: "dashboard/prescriptions",
       },
       {
         name: "Reports",
         icon: <TbReportMedical />,
-        link: "reports",
+        link: "dashboard/reports",
       },
     ],
   },

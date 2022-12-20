@@ -28,7 +28,7 @@ const Sidebar = () => {
         <>
           <div className='flex justify-between items-center'>
             <Link
-              to='/dashboard'
+              to='/'
               onClick={() => handleCloseSideBar}
               className='items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight text-slate-900 hover:text-slate-900'>
               <FaRegHospital /> <span>Hospital</span>
@@ -51,6 +51,7 @@ const Sidebar = () => {
                 {item.links.map((link) => (
                   <NavLink
                     to={`/${link.link}`}
+                    key={link.name}
                     onClick={handleCloseSideBar}
                     className={({ isActive }) =>
                       isActive ? activeLink : normalLink
