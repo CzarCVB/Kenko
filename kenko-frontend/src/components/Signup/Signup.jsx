@@ -42,7 +42,7 @@ const Signup = () => {
   return (
     <div className='card-back'>
       <div className='center-wrap'>
-        <div className='section text-center'>
+        <div className='section_login text-center'>
           <h4 className='mb-4 pb-3'>Sign Up</h4>
           <form onSubmit={handleSubmit}>
             <div className='form-group'>

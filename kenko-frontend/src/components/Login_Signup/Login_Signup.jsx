@@ -7,7 +7,7 @@ import "./Login_Signup.css";
 
 const LoginSignup = () => {
   return (
-    <div className='section'>
+    <div className='section_login'>
       <div className='container'>
         <div className='row full-height justify-content-center'>
           <div className='col-12 text-center align-self-center py-5'>

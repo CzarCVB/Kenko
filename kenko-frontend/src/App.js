@@ -3,15 +3,16 @@ import { Route, Routes, Navigate } from "react-router-dom";
 
 import LoginSignup from "./components/Login_Signup/Login_Signup";
 import PatientDashboard from "./Pages/PatientDashboard";
-
 import { useStateContext } from "./contexts/ContextProvider";
+import HomePage from "./Pages/HomePage/HomePage";
+
 import "./App.css";
 
 function App() {
   const { loggedIn } = useStateContext();
   return (
     <Routes>
-      <Route path='/' element={<div>App</div>} />
+      <Route path='/' element={<HomePage />} />
       <Route
         path='/login'
         element={!loggedIn ? <LoginSignup /> : <Navigate to='/' replace />}
