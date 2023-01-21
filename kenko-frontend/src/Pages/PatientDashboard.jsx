@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import DashboardHome from "../components/DashboardHome";
 import Calendar from "./Calendar";
 import Appointments from "./Appointments";
+import GrantRevoke from "./GrantRevoke";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const PatientDashboard = () => {
@@ -33,7 +34,7 @@ const PatientDashboard = () => {
             <Route path='/' element=<DashboardHome /> />
             <Route path='/home' element=<DashboardHome /> />
             <Route path='/appointments' element=<Appointments /> />
-            <Route path='/appointments' element=<Appointments /> />
+            <Route path='/access' element={<GrantRevoke />} />
             <Route path='/messages' element='Messages' />
             <Route path='/calendar' element=<Calendar /> />
 

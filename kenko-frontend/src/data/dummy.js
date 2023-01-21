@@ -65,10 +65,24 @@ const gridDoctorProfile = (props) => (
   <div className='flex items-center gap-2'>
     <img
       className='rounded-full w-10 h-10'
-      src={props.EmployeeImage}
+      src={props.DoctorImage}
       alt='employee'
     />
     <p>{props.Name}</p>
+  </div>
+);
+
+const accessButtons = (props) => (
+  <div>
+    {!props.Access ? (
+      <button type='button' className='bg-lime-500 text-white p-2 rounded mt-2'>
+        Grant
+      </button>
+    ) : (
+      <button type='button' className='bg-red-500 text-white p-2 rounded mt-2'>
+        Revoke
+      </button>
+    )}
   </div>
 );
 
@@ -146,6 +160,11 @@ export const links = [
         name: "Calendar",
         icon: <AiOutlineCalendar />,
         link: "dashboard/calendar",
+      },
+      {
+        name: "Data Access",
+        icon: <AiOutlineCalendar />,
+        link: "dashboard/access",
       },
     ],
   },
@@ -826,6 +845,116 @@ export const customersData = [
   },
 ];
 
+export const accessGrid = [
+  {
+    field: "ID",
+    headerText: "DoctorID",
+    width: "170",
+    textAlign: "Center",
+  },
+  {
+    headerText: "Doctor",
+    width: "150",
+    template: gridDoctorProfile,
+    textAlign: "Center",
+  },
+  { field: "Name", headerText: "", width: "0", textAlign: "Center" },
+  {
+    field: "Department",
+    headerText: "Department",
+    width: "120",
+    textAlign: "Center",
+  },
+  {
+    field: "Access",
+    headerText: "Grant/Revoke",
+    width: "135",
+    format: "yMd",
+    textAlign: "Center",
+    template: accessButtons,
+  },
+];
+
+export const accessData = [
+  {
+    Access: true,
+    Name: "Dr. Nancy Davolio",
+    Department: "Cardiology Department",
+    ID: 23876231,
+    DoctorImage: avatar3,
+  },
+  {
+    Access: true,
+    Name: "Dr. Arora Puneet",
+    Department: "Dermatology Department",
+    ID: 93876231,
+    DoctorImage: avatar3,
+  },
+  {
+    Access: false,
+    Name: "Dr. Nancy Chauhan",
+    Department: "Neurology Department",
+    ID: 638723231,
+    DoctorImage: avatar3,
+  },
+  {
+    Access: true,
+    Name: "Dr. Anand Narender Kumar",
+    Department: "Cardiology Department",
+    ID: 33876231,
+    DoctorImage: avatar3,
+  },
+  {
+    Access: false,
+    Name: "Dr. Nancy Davolio",
+    Department: "Gastroenterology Department",
+    ID: 13876231,
+    DoctorImage: avatar3,
+  },
+  {
+    Access: false,
+    Name: "Dr. Anand Narender Kumar",
+    Department: "Microbiology Department",
+    ID: 83876231,
+    DoctorImage: avatar3,
+  },
+  {
+    Access: true,
+    Name: "Dr. Arora Kumar",
+    Department: "Neurology Department",
+    ID: 23876231,
+    DoctorImage: avatar3,
+  },
+  {
+    Access: false,
+    Name: "Dr. Nancy Davolio",
+    Department: "Cardiology Department",
+    ID: 23876231,
+    DoctorImage: avatar3,
+  },
+  {
+    Access: false,
+    Name: "Dr. Nancy Davolio",
+    Department: "Cardiology Department",
+    ID: 53876231,
+    DoctorImage: avatar3,
+  },
+  {
+    Access: true,
+    Name: "Dr. Nancy Davolio",
+    Department: "Cardiology Department",
+    ID: 13876231,
+    DoctorImage: avatar3,
+  },
+  {
+    Access: true,
+    Name: "Dr. Nancy Davolio",
+    Department: "Cardiology Department",
+    ID: 93876231,
+    DoctorImage: avatar3,
+  },
+];
+
 export const appointmentData = [
   {
     Status: "pending",
@@ -834,6 +963,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "Completed",
@@ -842,6 +972,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "Due",
@@ -850,6 +981,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "pending",
@@ -858,6 +990,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "pending",
@@ -866,6 +999,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "Completed",
@@ -874,6 +1008,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "Postponed",
@@ -882,6 +1017,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "Completed",
@@ -890,6 +1026,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "Due",
@@ -898,6 +1035,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "Completed",
@@ -906,6 +1044,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "Completed",
@@ -914,6 +1053,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "Completed",
@@ -922,6 +1062,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "Completed",
@@ -930,6 +1071,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "Completed",
@@ -938,6 +1080,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "Completed",
@@ -946,6 +1089,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
   {
     Status: "Completed",
@@ -954,6 +1098,7 @@ export const appointmentData = [
     Date: "01/02/2021",
     Location: "Room no. 403",
     Reference: 98765432,
+    DoctorImage: avatar3,
   },
 ];
 
