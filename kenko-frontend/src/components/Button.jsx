@@ -20,6 +20,7 @@ const Button = ({
       onClick={() => {
         if (text === "Logout") {
           localStorage.removeItem("isLoggedIn");
+          localStorage.removeItem("Doctor");
           setLoggedIn(false);
         } else {
           setIsClicked(initialState);

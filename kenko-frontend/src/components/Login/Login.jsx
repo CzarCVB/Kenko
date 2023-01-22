@@ -24,6 +24,10 @@ export default function Login() {
       })
       .then((res) => {
         localStorage.setItem("isLoggedIn", res.data.token);
+        const role = res.data.user.role;
+        if (role === 1) {
+          localStorage.setItem("Doctor", true);
+        }
         setLoggedIn(true);
         navigate("/dashboard");
       })

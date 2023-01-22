@@ -36,7 +36,6 @@ const PatientDashboard = () => {
             <Route path='/home' element=<DashboardHome /> />
             <Route path='/appointments' element=<Appointments /> />
             <Route path='/access' element={<GrantRevoke />} />
-            <Route path='/messages' element='Messages' />
             <Route path='/calendar' element=<Calendar /> />
             <Route path='/profile' element=<Profile /> />
 
