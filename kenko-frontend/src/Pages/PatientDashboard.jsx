@@ -8,6 +8,7 @@ import Calendar from "./Calendar";
 import Appointments from "./Appointments";
 import GrantRevoke from "./GrantRevoke";
 import { useStateContext } from "../contexts/ContextProvider";
+import Profile from "../components/Profile";
 
 const PatientDashboard = () => {
   const { activeMenu } = useStateContext();
@@ -37,6 +38,7 @@ const PatientDashboard = () => {
             <Route path='/access' element={<GrantRevoke />} />
             <Route path='/messages' element='Messages' />
             <Route path='/calendar' element=<Calendar /> />
+            <Route path='/profile' element=<Profile /> />
 
             {/* Medical */}
             <Route path='/labresults' element='Lab Results' />

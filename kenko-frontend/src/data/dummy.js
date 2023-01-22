@@ -1,10 +1,10 @@
 import React from "react";
-import { AiOutlineCalendar, AiOutlineMessage } from "react-icons/ai";
+import { AiOutlineCalendar } from "react-icons/ai";
 import { FiCreditCard } from "react-icons/fi";
 import { HiOutlineHome } from "react-icons/hi";
 import { SlNote } from "react-icons/sl";
 import { BsCurrencyDollar, BsShield } from "react-icons/bs";
-import { ImLab } from "react-icons/im";
+import { ImLab, ImProfile, ImDatabase } from "react-icons/im";
 import { TbReportMedical } from "react-icons/tb";
 import { GiMedicines } from "react-icons/gi";
 import { GrLocation } from "react-icons/gr";
@@ -152,19 +152,19 @@ export const links = [
         link: "dashboard/appointments",
       },
       {
-        name: "Messages",
-        icon: <AiOutlineMessage />,
-        link: "dashboard/messages",
-      },
-      {
         name: "Calendar",
         icon: <AiOutlineCalendar />,
         link: "dashboard/calendar",
       },
       {
         name: "Data Access",
-        icon: <AiOutlineCalendar />,
+        icon: <ImDatabase />,
         link: "dashboard/access",
+      },
+      {
+        name: "Profile",
+        icon: <ImProfile />,
+        link: "dashboard/profile",
       },
     ],
   },
