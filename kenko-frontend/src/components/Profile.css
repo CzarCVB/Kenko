@@ -1,0 +1,28 @@
+.patient {
+  width: 75%;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 20px auto;
+}
+
+.patient input {
+  height: 20px;
+  border-radius: 4px;
+  padding: 3px 6px;
+  border: 1px solid #00000066;
+  margin-top: 4px;
+}
+
+.patient_column {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.patient_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
